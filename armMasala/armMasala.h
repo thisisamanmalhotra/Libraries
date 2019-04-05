@@ -21,7 +21,7 @@ class motor
     int pin[4];                                                 //pin1,pin2,pwm,potPin
     int potVal;                                                 //pot value;
     int velocity;                                               //pwn value for particular motor
-    void setPins(int[]);                                        //initialises the pins
+    void setPins(int temp[]);                                        //initialises the pins
     void run(int p1,int p2);                                    //runs motor forward(1,0) or backward(0,1) of pause(0,0) 
     void serialRun(int p1,int p2);
     int getPotVal();                                            //Returns potVal
