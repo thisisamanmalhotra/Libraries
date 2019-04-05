@@ -61,13 +61,13 @@ while( (fabs(la1-LA1.getPotVal())>20 || fabs(la2-LA2.getPotVal())>20 ) )// ||fab
       tempvel2=vel*(del3/del2);   TT.velocity=tempvel2;
     }
 
-    la1>LA1.getPotVal()?LA1.runn(1,0):LA1.runn(0,1);
-    la2>LA2.getPotVal()?LA2.runn(1,0):LA2.runn(0,1);
+    la1>LA1.getPotVal()?LA1.run(1,0):LA1.run(0,1);
+    la2>LA2.getPotVal()?LA2.run(1,0):LA2.run(0,1);
     //tt>TT.getPotVal()?TT.serialRun(1,0):TT.serialRun(0,1);
   }
   TT.serialRun(0,0);
-  LA2.runn(0,0);
-  LA1.runn(0,0);
+  LA2.run(0,0);
+  LA1.run(0,0);
 }
 void armMasala::gotoSemiDir(double d1,double d2,double d3,double vel)
 {
@@ -75,8 +75,8 @@ void armMasala::gotoSemiDir(double d1,double d2,double d3,double vel)
  double dYdt=d2*vel;
  double dZdt=d3*vel;
   
-  double BETA=map(arm.LA2.getPotVal(),AP[2],AP[3],AL[2],AL[3]);                   //length of the lower actuator
-  double ALPHA=map(arm.LA1.getPotVal(),AP[0],AP[1],AL[0],AL[1]);                  //length of the top actuator
+  double BETA=map(LA2.getPotVal(),AP[2],AP[3],AL[2],AL[3]);                   //length of the lower actuator
+  double ALPHA=map(LA1.getPotVal(),AP[0],AP[1],AL[0],AL[1]);                  //length of the top actuator
   double THETA=acos((pow(L[6],2)+pow(L[7],2)-pow(ALPHA,2))/ (2*L[6]*L[7]))+FA[0]-FA[2];
 
   double lengths=pow((pow(TP[1],2)+pow(L[8],2)-2*TP[1]*L[8]*cos(PI+TP[5]-THETA-FA[3])),0.5);
